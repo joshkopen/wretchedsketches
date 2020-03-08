@@ -1,5 +1,11 @@
 import random
 
+def getWordList():
+	filename = "nouns.txt"
+	with open(filename) as f: 
+		words = f.read().splitlines()
+	return words
+
 def getMaxTurns():
 	if (len(players) % 2 == 0):
 		return len(players) - 1
@@ -24,7 +30,7 @@ def waitForResponsesFromPlayers():
 			sequences[i].append(rotatedPlayerList[i] + "'s guess of " + sequences[i][currentTurn])
 
 
-wordList = ["apple", "banana", "cherry"]
+wordList = getWordList()
 players = ["toffler", "bloomfeld", "mullett", "kopen", "shulman"]
 sequences = []
 currentTurn = 0
